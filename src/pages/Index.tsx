@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -10,10 +11,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-primary/5 to-background pt-16">
         <div className="container text-center">
-          <h1 className="text-6xl font-serif mb-6 animate-fadeIn">
+          <h1 className="text-6xl font-serif mb-6 animate-fadeIn opacity-90">
             Welcome to My Gallery
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fadeIn" style={{ animationDelay: "150ms" }}>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fadeIn opacity-80" style={{ animationDelay: "150ms" }}>
             Exploring the boundaries between reality and imagination through contemporary art
           </p>
         </div>
@@ -49,6 +50,7 @@ const Index = () => {
 
       <Gallery />
       <Contact />
+      <Footer />
     </div>
   );
 };

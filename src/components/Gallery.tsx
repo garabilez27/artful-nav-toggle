@@ -1,3 +1,4 @@
+import { Button } from "./ui/button";
 import ArtworkCard from "./ArtworkCard";
 
 const artworks = [
@@ -54,6 +55,11 @@ const Gallery = () => {
               <ArtworkCard {...artwork} />
             </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Button variant="outline" size="lg" className="hover:bg-primary hover:text-white transition-colors">
+            View More
+          </Button>
         </div>
       </div>
     </section>
