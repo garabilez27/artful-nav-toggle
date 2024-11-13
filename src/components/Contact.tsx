@@ -18,19 +18,19 @@ const Contact = () => {
             <label htmlFor="name" className="text-sm font-medium">
               Name
             </label>
-            <Input id="name" required />
+            <Input id="name" required className="bg-white dark:bg-background" />
           </div>
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>
-            <Input id="email" type="email" required />
+            <Input id="email" type="email" required className="bg-white dark:bg-background" />
           </div>
           <div className="space-y-2">
             <label htmlFor="message" className="text-sm font-medium">
               Message
             </label>
-            <Textarea id="message" required className="min-h-[150px]" />
+            <Textarea id="message" required className="min-h-[150px] bg-white dark:bg-background" />
           </div>
           <Button type="submit" className="w-full">
             Send Message

@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-lg"
+          ? "bg-background shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -33,13 +33,13 @@ const Navbar = () => {
           <h1 className="text-2xl font-serif font-bold">Artist Name</h1>
           
           {/* Desktop menu */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <NavLinks />
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           </div>
 
           {/* Mobile menu controls */}
-          <div className="flex items-center space-x-2 lg:hidden">
+          <div className="flex items-center space-x-2 md:hidden">
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,12 +57,14 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div
-          className={`lg:hidden fixed inset-0 top-[73px] bg-background/95 backdrop-blur-sm transition-all duration-300 ${
-            isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          className={`md:hidden transition-all duration-300 ${
+            isMenuOpen
+              ? "max-h-64 opacity-100 visible"
+              : "max-h-0 opacity-0 invisible"
           }`}
         >
-          <div className="container mx-auto px-6 py-8">
-            <div className="flex flex-col space-y-6">
+          <div className="py-4">
+            <div className="flex flex-col space-y-4">
               <NavLinks mobile />
             </div>
           </div>
