@@ -23,9 +23,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background shadow-lg"
-          : "bg-transparent"
+        isScrolled ? "bg-background shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -34,7 +32,7 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLinks />
+            <NavLinks setIsMenuOpen={setIsMenuOpen} />
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           </div>
 
@@ -65,7 +63,7 @@ const Navbar = () => {
         >
           <div className="py-4">
             <div className="flex flex-col space-y-4">
-              <NavLinks mobile />
+              <NavLinks mobile setIsMenuOpen={setIsMenuOpen} />
             </div>
           </div>
         </div>
@@ -74,13 +72,32 @@ const Navbar = () => {
   );
 };
 
-const NavLinks = ({ mobile }: { mobile?: boolean }) => {
+const NavLinks = ({ 
+  mobile, 
+  setIsMenuOpen 
+}: { 
+  mobile?: boolean;
+  setIsMenuOpen: (value: boolean) => void;
+}) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <>
       {["gallery", "about", "contact"].map((item) => (
         <a
           key={item}
           href={`#${item}`}
+          onClick={(e) => handleClick(e, item)}
           className={`group relative ${
             mobile ? "block py-2 text-lg" : ""
           } hover:text-primary transition-colors`}
