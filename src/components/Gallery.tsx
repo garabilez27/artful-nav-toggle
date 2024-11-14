@@ -11,7 +11,7 @@ const artworks = [
   {
     title: "Urban Dreams",
     description: "Mixed media",
-    image: "https://images.unsplash.com/photo-1549887552-cb1071d3e5ca",
+    image: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4",
     year: "2023",
   },
   {
