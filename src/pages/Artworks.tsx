@@ -18,6 +18,7 @@ import {
 import Navbar from "@/components/Navbar";
 import ArtworkCard from "@/components/ArtworkCard";
 import { allArtworks } from "@/data/artworks";
+import Footer from "@/components/Footer";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -96,6 +97,8 @@ const ArtworksPage = () => {
           </PaginationContent>
         </Pagination>
       </div>
+
+      <Footer />
     </div>
   );
 };
