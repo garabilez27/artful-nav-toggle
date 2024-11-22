@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { allArtworks } from "@/data/artworks";
 
 const Gallery = () => {
-  const previewArtworks = allArtworks.slice(0, 6);
+  const previewArtworks = allArtworks.slice(0, 4);
 
   return (
     <section id="gallery" className="py-20">
