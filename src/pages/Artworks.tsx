@@ -15,6 +15,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import Navbar from "@/components/Navbar";
 import ArtworkCard from "@/components/ArtworkCard";
 import { allArtworks } from "@/data/artworks";
 
@@ -39,8 +40,9 @@ const ArtworksPage = () => {
   );
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="container">
+    <div className="min-h-screen">
+      <Navbar />
+      <div className="container pt-24 pb-20">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-serif">All Artworks</h1>
           <Select value={sortBy} onValueChange={setSortBy}>
