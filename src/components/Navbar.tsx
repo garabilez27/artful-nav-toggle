@@ -102,9 +102,7 @@ const NavLinks = ({
     e.preventDefault();
     setIsMenuOpen(false);
     
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: id } });
-    } else {
+    const scrollToSection = () => {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({
@@ -112,6 +110,17 @@ const NavLinks = ({
           block: "start",
         });
       }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/', { 
+        state: { scrollTo: id },
+        replace: true 
+      });
+      // Add a small delay to ensure the new page has loaded before scrolling
+      setTimeout(scrollToSection, 100);
+    } else {
+      scrollToSection();
     }
   };
 
