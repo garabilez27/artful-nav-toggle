@@ -38,13 +38,13 @@ export const allArtworks = [
   {
     title: "Urban Jungle",
     description: "Mixed media",
-    image: "https://images.unsplash.com/photo-1578301978018-3199d0cc2c93",
+    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5",
     year: "2023",
   },
   {
     title: "Midnight Dreams",
     description: "Oil on canvas",
-    image: "https://images.unsplash.com/photo-1579783902439-5f98b6df7d89",
+    image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8",
     year: "2023",
   },
   {
