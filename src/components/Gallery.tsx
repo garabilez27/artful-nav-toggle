@@ -2,9 +2,34 @@ import { Button } from "./ui/button";
 import ArtworkCard from "./ArtworkCard";
 import { Link } from "react-router-dom";
 import { allArtworks } from "@/data/artworks";
+import { useEffect, useState } from "react";
 
 const Gallery = () => {
-  const previewArtworks = allArtworks.slice(0, 8);
+  const [artworksToShow, setArtworksToShow] = useState<number>(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) { // xl breakpoint
+        setArtworksToShow(8);
+      } else if (width >= 1024) { // lg breakpoint
+        setArtworksToShow(6);
+      } else { // md and smaller
+        setArtworksToShow(4);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const previewArtworks = allArtworks.slice(0, artworksToShow);
 
   return (
     <section id="gallery" className="py-20">
