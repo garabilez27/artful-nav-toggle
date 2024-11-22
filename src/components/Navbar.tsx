@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,10 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark");
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,7 +34,17 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-serif font-bold">Artist Name</h1>
+          <div 
+            className="flex items-center space-x-2 cursor-pointer" 
+            onClick={handleLogoClick}
+          >
+            <img 
+              src="/placeholder.svg" 
+              alt="Artist Logo" 
+              className="w-8 h-8 rounded-full"
+            />
+            <h1 className="text-2xl font-serif font-bold">Artist Name</h1>
+          </div>
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
