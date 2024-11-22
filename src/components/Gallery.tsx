@@ -10,7 +10,7 @@ const Gallery = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width >= 1280) { // xl breakpoint
+      if (width >= 1360) { // xl breakpoint
         setArtworksToShow(8);
       } else if (width >= 1024) { // lg breakpoint
         setArtworksToShow(6);
