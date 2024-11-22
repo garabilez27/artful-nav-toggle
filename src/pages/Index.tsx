@@ -12,18 +12,23 @@ const Index = () => {
 
   useEffect(() => {
     // Handle scroll to section if coming from another page
-    if (location.state?.scrollTo) {
-      const element = document.getElementById(location.state.scrollTo);
-      if (element) {
-        setTimeout(() => {
+    const handleScroll = () => {
+      if (location.state?.scrollTo) {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
           element.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
-        }, 100);
+        }
       }
+    };
+
+    if (!isLoading) {
+      // Only attempt to scroll after loading is complete
+      handleScroll();
     }
-  }, [location.state]);
+  }, [location.state, isLoading]);
 
   useEffect(() => {
     // Simulate loading time
