@@ -71,13 +71,13 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div
-          className={`md:hidden transition-all duration-300 ${
+          className={`md:hidden fixed left-0 right-0 transition-all duration-300 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg ${
             isMenuOpen
               ? "max-h-64 opacity-100 visible"
               : "max-h-0 opacity-0 invisible"
           }`}
         >
-          <div className="py-4">
+          <div className="py-4 container mx-auto px-6">
             <div className="flex flex-col space-y-4">
               <NavLinks mobile setIsMenuOpen={setIsMenuOpen} />
             </div>
