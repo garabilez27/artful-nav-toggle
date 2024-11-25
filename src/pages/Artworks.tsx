@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -19,12 +19,27 @@ import Navbar from "@/components/Navbar";
 import ArtworkCard from "@/components/ArtworkCard";
 import { allArtworks } from "@/data/artworks";
 import Footer from "@/components/Footer";
+import { Loader } from "@/components/ui/loader";
 
 const ITEMS_PER_PAGE = 12;
 
 const ArtworksPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("newest");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const sortedArtworks = [...allArtworks].sort((a, b) => {
     if (sortBy === "newest") return parseInt(b.year) - parseInt(a.year);
